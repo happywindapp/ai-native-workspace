@@ -1,0 +1,45 @@
+{
+  "_readme": "Fill this ONE file, then run: pwsh scripts/apply-template.ps1 . Service names live ONLY in 'services' (DRY). 'scalars' = project/external identity. 'tokenMap' wires inline doc tokens to a service field via @svc:<key>:<field>. Use-time tokens like {{repo}} {{host}} {{port}} are left untouched.",
+
+  "scalars": {
+    "workspace-root": "c:/my-workspace",
+    "company": "ACME Corp",
+    "team-email": "team@acme.com",
+    "core-system": "CoreBackOffice",
+    "exchange": "SomeExchange",
+    "depository": "SomeDepository"
+  },
+
+  "tokenMap": {
+    "service-a": "@svc:orders:name",
+    "service-b": "@svc:billing:name",
+    "frontend-app": "@svc:web:name",
+    "admin-app": "@svc:admin:name",
+    "gateway-service": "@svc:edge:name",
+    "middleware-service": "@svc:edge:name",
+    "oms-service": "@svc:orders:name",
+    "stp-service": "@svc:settlement:name",
+    "fix-gateway": "@svc:exchange-gw:name"
+  },
+
+  "services": [
+    { "key": "web",         "name": "WebApp",            "tier": "frontend",    "stack": "React/TypeScript", "repo": "path/to/web",         "baseUrlEnv": "WEB_URL" },
+    { "key": "admin",       "name": "AdminApp",          "tier": "frontend",    "stack": "React/TypeScript", "repo": "path/to/admin",       "baseUrlEnv": "ADMIN_URL" },
+    { "key": "edge",        "name": "EdgeGateway",       "tier": "bff",         "stack": "Node/NestJS",      "repo": "path/to/edge",        "baseUrlEnv": "EDGE_URL" },
+    { "key": "orders",      "name": "OrderService",      "tier": "domain",      "stack": "Go",               "repo": "path/to/orders",      "baseUrlEnv": "ORDERS_URL" },
+    { "key": "billing",     "name": "BillingService",    "tier": "domain",      "stack": "Go",               "repo": "path/to/billing",     "baseUrlEnv": "BILLING_URL" },
+    { "key": "settlement",  "name": "SettlementService", "tier": "domain",      "stack": "Go",               "repo": "path/to/settlement",  "baseUrlEnv": "SETTLEMENT_URL" },
+    { "key": "exchange-gw", "name": "ExchangeGateway",   "tier": "integration", "stack": "Go",               "repo": "path/to/exchange-gw", "baseUrlEnv": "EXCHANGE_GW_URL" }
+  ],
+
+  "datastores": [
+    { "key": "pg",    "type": "PostgreSQL", "envPrefix": "PG" },
+    { "key": "redis", "type": "Redis",      "envPrefix": "REDIS" },
+    { "key": "mongo", "type": "MongoDB",    "envPrefix": "MONGO" }
+  ],
+
+  "messaging": [
+    { "key": "mq",   "type": "Kafka", "env": "MQ_URL" },
+    { "key": "grpc", "type": "gRPC",  "env": "GRPC_ENDPOINT" }
+  ]
+}
