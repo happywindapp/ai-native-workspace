@@ -9,7 +9,7 @@
 |-----|-----------|---------|
 | Config & rules | `~/.claude/CLAUDE.md`, `~/.claude/rules/*`, `settings.json`, hooks | Luật điều phối agent, env, hành vi tự động |
 | Local AI config | `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md` | Auto-load cho từng AI tool tại hub |
-| Skill libraries | `anthropics_skills`, `anthropics_knowledge-work-plugins`, `mattpocock_skills` | Kho năng lực AI nạp động (vendored git repo) |
+| Skill libraries | vendored skill/plugin repos (tuỳ chọn, clone riêng) | Kho năng lực AI nạp động (vendored git repo) |
 | Shared context | `ai-context/`, `docs/`, `plans/`, `server-config.md` | Memory, tài liệu, kế hoạch, cấu hình môi trường |
 | Agents | `~/.claude/agents/*` (planner, researcher, tester, code-reviewer...) | Subagent chuyên trách trong workflow |
 

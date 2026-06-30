@@ -17,11 +17,11 @@ description: >-              # mô tả LÀM GÌ + KHI NÀO dùng (agent match t
 ```
 
 - Nội dung markdown bên dưới = instructions + examples + guidelines.
-- Nguồn spec: `anthropics_skills/spec/`, template: `anthropics_skills/template/`.
+- Nguồn spec & template: theo vendored skill library bạn dùng (`<skill-repo>/spec/`, `<skill-repo>/template/`).
 
 ## 2. `plugin.json` manifest (Claude plugin)
 
-Mỗi plugin (knowledge-work-plugins) theo cấu trúc:
+Mỗi plugin theo cấu trúc:
 
 ```text
 plugin-name/

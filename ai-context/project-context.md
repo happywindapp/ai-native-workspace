@@ -21,12 +21,12 @@ Hub này **không tự chạy nghiệp vụ** — mã nguồn các hệ thống 
   | AI config & rules | Luật điều phối agent, naming, workflow | `~/.claude/*` + `CLAUDE.md`/`GEMINI.md`/`.github/` |
   | Shared context | Memory, plans, reports, server-config | `ai-context/`, `plans/`, `docs/`, `server-config.md` |
 
-- **Skill libraries (git repo vendored):**
+- **Skill libraries (git repo vendored — tuỳ chọn, clone riêng):**
   | Repo | Nội dung | Quy mô |
   |------|----------|--------|
-  | `anthropics_skills` | Skill tham chiếu của Anthropic + document skills (docx/pdf/pptx/xlsx) | 18 SKILL.md |
-  | `anthropics_knowledge-work-plugins` | 22 plugin Cowork (17 role: sales, finance, data, engineering... + 5 partner-built) | 212 SKILL.md |
-  | `mattpocock_skills` | Skill engineering/productivity (bucket-organized) | 29 SKILL.md |
+  | `<skill-repo-a>` | Skill tham chiếu + document skills (docx/pdf/pptx/xlsx) | _N_ SKILL.md |
+  | `<skill-repo-b>` | Plugin theo vai trò (sales, finance, data, engineering...) | _N_ SKILL.md |
+  | `<skill-repo-c>` | Skill engineering/productivity | _N_ SKILL.md |
 
 - **Cơ chế hoạt động:** skill nạp động theo `description` → catalog sinh bởi
   `~/.claude/scripts/generate_catalogs.py` → agent kích hoạt khi liên quan. Hành vi tự động

@@ -8,7 +8,7 @@
 |-----------|-----------|
 | Knowledge hub | `{{workspace-root}}` — workspace tổng hợp điều phối AI, không phải runtime app |
 | Skill | Folder + `SKILL.md`, năng lực AI nạp động theo `description` |
-| Plugin | Bó skill + commands + connectors cho 1 vai trò (knowledge-work-plugins) |
+| Plugin | Bó skill + commands + connectors cho 1 vai trò |
 | MCP | Model Context Protocol — chuẩn kết nối AI tới tool ngoài qua `.mcp.json` |
 | Catalog | Danh mục skill sinh bởi `generate_catalogs.py`, agent đọc để kích hoạt |
 | Hook | Script tự động chạy before/after event, cấu hình trong `settings.json` |

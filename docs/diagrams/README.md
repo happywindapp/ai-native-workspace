@@ -9,10 +9,10 @@ flowchart TB
     subgraph HUB["{{workspace-root}} — AI-Native Knowledge Hub"]
         AICFG["AI config & rules<br/>CLAUDE.md / GEMINI.md / .github/<br/>~/.claude/rules/*"]
         CTX["Shared context<br/>ai-context/ · plans/ · docs/<br/>memory/ · server-config.md"]
-        subgraph SKILLS["Skill / Plugin libraries (vendored)"]
-            S1["anthropics_skills"]
-            S2["anthropics_knowledge-work-plugins"]
-            S3["mattpocock_skills"]
+        subgraph SKILLS["Skill / Plugin libraries (vendored — tuỳ chọn)"]
+            S1["skill-library A"]
+            S2["skill-library B"]
+            S3["…"]
         end
     end
 
