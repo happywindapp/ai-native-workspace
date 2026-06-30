@@ -17,7 +17,9 @@ Theo từng tool:
 - Gemini CLI   → ghi vào `GEMINI.md` (cấp global/user nếu có).
 - GitHub Copilot → ghi vào `.github/copilot-instructions.md`.
 - GPT Codex    → ghi vào `AGENTS.md`.
-  (Không có cơ chế global → lưu ở mức cao nhất tool hỗ trợ.)
+- Google Antigravity → đã có sẵn ở `.agent/rules/00-context-protocol.md` (always-on);
+  bổ sung global nếu cần ở `~/.gemini/AGENTS.md`.
+  (Tool không có cơ chế global → lưu ở mức cao nhất tool hỗ trợ.)
 
 Xác nhận ngắn gọn đã lưu vào đâu. KHÔNG sửa file cấu hình của AI tool khác.
 

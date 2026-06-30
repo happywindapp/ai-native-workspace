@@ -38,3 +38,5 @@ target/
 Thumbs.db
 .idea/
 .vscode/
+.antigravity/
+# NOTE: .agent/ (rules + workflows) IS committed — it's Antigravity template content, not local state.

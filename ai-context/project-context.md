@@ -6,7 +6,7 @@
 
 `{{workspace-root}}` là **AI-Native development knowledge hub**: nơi tập trung
 skill/plugin, rule điều phối AI, ngữ cảnh chung và memory để **lái các AI agent
-(Claude Code, Copilot, Gemini CLI)** làm việc trên các hệ thống của bạn.
+(Claude Code, Copilot, Gemini CLI, GPT Codex, Google Antigravity)** làm việc trên các hệ thống của bạn.
 
 Hub này **không tự chạy nghiệp vụ** — mã nguồn các hệ thống thật nằm ở root khác
 (xem [Downstream targets](#downstream-targets)). Đây là "buồng lái" để điều khiển AI.

@@ -30,6 +30,7 @@ Không phải runtime app. Tài liệu nguồn: `ai-context/project-context.md`.
 Áp dụng cho mọi project theo chuẩn thư mục dùng chung đa tool.
 
 - Root chuẩn: `.github/copilot-instructions.md`, `CLAUDE.md`, `GEMINI.md`, `AGENTS.md`, `note.md`.
+- Google Antigravity: dùng `AGENTS.md` + `GEMINI.md` + thư mục `.agent/` (`rules/`, `workflows/`).
 - AI context chuẩn: `ai-context/project-context.md`, `ai-context/working/sprint-current.md`, `ai-context/working/issues-open.md`, `ai-context/memory/`, `ai-context/prompts/`.
 - Docs chuẩn (single source of truth): `docs/INDEX.md`, `business/`, `architecture/`, `data-models/`, `api-contracts/`, `security/`, `deployment/`, `diagrams/`, `decisions/`, `glossary.md`.
 - Services chuẩn: nhiều repo độc lập (`repo_1/`, `repo_2/`, `repo_3/`...) và `scripts/` dùng chung.

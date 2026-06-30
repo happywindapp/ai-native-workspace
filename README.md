@@ -1,10 +1,12 @@
 # ai-native-workspace
 
-Khung thư mục (scaffold) để **nhiều AI coding agent** — Claude Code, Gemini CLI, GitHub Copilot, GPT Codex —
+Khung thư mục (scaffold) để **nhiều AI coding agent** — Claude Code, Gemini CLI, GitHub Copilot, GPT Codex, **Google Antigravity** —
 cùng làm việc trên một hệ **microservices** với **một nguồn tài liệu duy nhất** (`docs/` là single source of truth).
 
-Mỗi AI tự đọc file config của nó khi khởi động (`CLAUDE.md`, `GEMINI.md`, `AGENTS.md`, `.github/copilot-instructions.md`),
+Mỗi AI tự đọc file config của nó khi khởi động (`CLAUDE.md`, `GEMINI.md`, `AGENTS.md`, `.github/copilot-instructions.md`, `.agent/`),
 rồi cùng tra cứu chung `docs/` + `ai-context/`. Khai báo service **một chỗ** trong `template.config.json`, chạy 1 script là điền xong toàn bộ.
+
+> **Google Antigravity** tự nạp `AGENTS.md` + `GEMINI.md` (root) và thư mục `.agent/` (`rules/`, `workflows/`). Xem [`.agent/README.md`](.agent/README.md).
 
 ## Vì sao
 
@@ -18,6 +20,9 @@ rồi cùng tra cứu chung `docs/` + `ai-context/`. Khai báo service **một c
 ai-native-workspace/
 ├── CLAUDE.md · GEMINI.md · AGENTS.md       # [auto-load] config từng AI tool
 ├── .github/copilot-instructions.md         # [auto-load] Copilot
+├── .agent/                                 # [auto-load] Google Antigravity
+│   ├── rules/                              # rules always-on (context · guardrails · clean-code)
+│   └── workflows/                          # workflows: feature/debug/review/refactor
 ├── template.config.json                    # ★ NGUỒN KHAI BÁO DUY NHẤT (services/scalars)
 ├── server-config.example.md                # mẫu env → copy thành server-config.md (gitignored)
 ├── ai-context/
