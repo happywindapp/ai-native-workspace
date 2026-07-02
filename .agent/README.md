@@ -12,6 +12,7 @@
 | `GEMINI.md` (root) | Rule Antigravity-specific (ưu tiên cao hơn AGENTS.md) | ✅ |
 | `.agent/rules/*.md` | Rule chi tiết theo concern | ✅ |
 | `.agent/workflows/*.md` | Workflow gọi theo tên | ✅ (invoke thủ công) |
+| `.agent/skills/` | Skills dùng chung — junction → `ai-context/skills/` (gitignored, tạo bởi `scripts/link-shared-skills.ps1`) | ✅ (load theo relevance) |
 | `ai-context/`, `docs/` | Single source of truth (đọc theo rule 00) | qua rule, không auto |
 
 ## Nguyên tắc (DRY)

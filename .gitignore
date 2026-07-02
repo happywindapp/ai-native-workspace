@@ -33,6 +33,13 @@ __pycache__/
 vendor/
 target/
 
+# Junction skills đa-AI (tạo bởi scripts/link-shared-skills.ps1) — KHÔNG commit, nguồn thật ở ai-context/skills/
+.agents/skills/
+.claude/skills/
+.github/skills/
+.agent/skills/
+.gemini/skills/
+
 # Editor / OS
 .DS_Store
 Thumbs.db

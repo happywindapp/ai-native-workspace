@@ -22,7 +22,7 @@ Không phải runtime app. Tài liệu nguồn: `ai-context/project-context.md`.
 
 - DB **READ-ONLY** — không sinh code/lệnh ghi-xóa DB tự chạy.
 - KHÔNG auto `git commit`/`git push`.
-- Skill mới đặt ở `~/.claude/skills/`; mỗi skill = 1 folder + `SKILL.md` (frontmatter `name` + `description`).
+- Skill dùng chung project ở `ai-context/skills/` (Copilot đọc qua junction `.github/skills/`); mỗi skill = 1 folder + `SKILL.md` (frontmatter `name` + `description`).
 - Thuật ngữ domain: `docs/glossary.md`. Quyết định kiến trúc: `docs/decisions/`.
 
 ## Universal Project Structure (Multi-AI)
