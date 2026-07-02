@@ -108,6 +108,40 @@ Skill viết **1 lần** ở `ai-context/skills/` — mọi AI tool cùng đọc
 - Skill phải "thuần chuẩn mở" (frontmatter chỉ `name` + `description`) để chạy mọi tool. Chi tiết: [`ai-context/skills/README.md`](ai-context/skills/README.md).
 - Caveat: tính năng server-side (Copilot cloud agent trên github.com) không thấy junction — cần thì commit bản thật riêng vào `.github/skills/`.
 
+### Migrate project ĐÃ apply template cũ (chưa có skills)
+
+**Phần A — copy + merge + link (làm 1 lần/project, không cần prompt):**
+
+1. Copy 2 thứ mới từ template sang project:
+
+   ```powershell
+   robocopy c:\_work-template\ai-context\skills <project>\ai-context\skills /E
+   copy c:\_work-template\scripts\link-shared-skills.ps1 <project>\scripts\
+   ```
+
+2. Merge tay các file đã điền token (KHÔNG copy đè — project cũ đã apply token thật):
+   - `.gitignore` → thêm block 5 dòng junction (`.agents/.claude/.github/.agent/.gemini` + `/skills/`).
+   - `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `.github/copilot-instructions.md`, `.agent/README.md` → mỗi file 1–2 dòng về skills (xem diff commit skills ở repo template).
+   - Prompts 1, 2, 4, 5 → copy đè được; **prompt 6 chỉ merge dòng skills** (file đã điền tên service thật).
+   - Mẹo: mở AI agent tại project và yêu cầu *"merge các thay đổi skills từ c:\_work-template vào project này, giữ nguyên nội dung đã điền"*.
+
+3. Tạo junction:
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File scripts\link-shared-skills.ps1
+   ```
+
+**Phần B — prompt nào cần gọi sau đó:**
+
+| Prompt | Gọi? | Lý do |
+| --- | --- | --- |
+| 1 init | ❌ | Khung đã có; skills dir đã copy ở Phần A |
+| 2 autofill | ✅ duy nhất đáng gọi | Chỉ phần mục tiêu skills: chưng cất kiến thức domain lặp lại từ docs/readme/code thành skill trong `ai-context/skills/` |
+| 3 system-doc | ❌ | Không liên quan skills |
+| 4 sync-docs | ❌ chưa cần | Chạy định kỳ như thường lệ — đã tự kiểm tra skill drift |
+| 5 remember-structure | ⚠️ 1 lần/TOOL, không per-project | Claude Code đã có trong `~/.claude/CLAUDE.md`; Gemini/Copilot/Codex/Antigravity chạy lại 1 lần để global config học phần skills |
+| 6 onboard | ❌ | Protocol global không đổi — skills tự nạp qua junction |
+
 ## Workflow đa-AI (prompts)
 
 `ai-context/prompts/` chứa các prompt copy-paste theo vòng đời:

@@ -28,6 +28,7 @@
 - [ ] `ai-context/working/*` — phản ánh sprint & issues hiện tại.
 - [ ] `docs/*` — business/architecture/api-contracts/data-models khớp code mới.
 - [ ] AI config (CLAUDE.md/GEMINI.md/.github/) — chỉ khi convention/stack đổi.
+- [ ] `ai-context/skills/*/SKILL.md` — skill lệch với flow/code mới; junction thiếu (tool không thấy skill) → chạy `scripts/link-shared-skills.ps1`.
 
 ## QUY TRÌNH
 

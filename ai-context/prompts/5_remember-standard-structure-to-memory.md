@@ -24,6 +24,7 @@ YÊU CẦU:
    - Xem việc đang làm trong ai-context/working/sprint-current.md và issues-open.md
    - Ghi lại bài học mới vào ai-context/memory/
    - Dùng prompt template trong ai-context/prompts/ khi phù hợp
+   - Skill dùng chung project → tạo/sửa trong ai-context/skills/; nếu không thấy skill nào (junction thiếu) → chạy scripts/link-shared-skills.ps1
 3. Không được update các file của các AI khác
 
 CẤU TRÚC THƯ MỤC:
@@ -43,6 +44,10 @@ ai-context/ (context cho AI):
 - working/issues-open.md    → bugs & blockers đang mở
 - memory/ → nơi AI ghi lại bài học (lỗi build hay gặp, v.v.)
 - prompts/ → template tái sử dụng: feature.md, review.md, debug.md, refactor.md
+- skills/ → SKILLS DÙNG CHUNG mọi AI tool (chuẩn mở SKILL.md, frontmatter name + description).
+  Tool đọc qua junction .agents/.claude/.github/.agent/.gemini + /skills/ (gitignored),
+  tạo bởi scripts/link-shared-skills.ps1 — junction thiếu thì chạy lại script.
+  Skill dùng chung của project CHỈ tạo ở đây, không tạo ở thư mục riêng từng tool.
 
 docs/ (SINGLE SOURCE OF TRUTH — AI và người dùng dùng chung):
 

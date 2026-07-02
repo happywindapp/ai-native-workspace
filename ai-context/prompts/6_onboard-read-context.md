@@ -72,6 +72,7 @@ Dùng work-context path của project đó, KHÔNG phải `{{workspace-root}}`:
 - Quy ước & rule điều phối: `CLAUDE.md` (+ `~/.claude/rules/*`).
 - DB READ-ONLY. KHÔNG tự `git commit`/`git push`. Diff hẹp, đúng việc.
 - YAGNI · KISS · DRY. Comment tối thiểu (1 dòng WHY khi cần). File < ~200 dòng.
+- Skills dùng chung: `ai-context/skills/` (tool tự nạp qua junction; không thấy skill → chạy `scripts/link-shared-skills.ps1`).
 
 ## Xác nhận trước khi code (in ra cho tôi)
 

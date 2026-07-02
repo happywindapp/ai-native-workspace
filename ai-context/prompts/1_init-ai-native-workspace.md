@@ -21,7 +21,8 @@ Hãy khởi tạo và tái cấu trúc thư mục dự án hiện tại theo chu
 │   │   ├── sprint-current.md         # Task list hiện tại
 │   │   └── issues-open.md            # Bugs / blockers đang mở
 │   ├── memory/                       # AI ghi bài học (lỗi build hay gặp...)
-│   └── prompts/                      # Prompt templates: feature / review / debug / refactor
+│   ├── prompts/                      # Prompt templates: feature / review / debug / refactor
+│   └── skills/                       # SKILLS DÙNG CHUNG mọi AI (chuẩn mở SKILL.md)
 ├── docs/                             # SINGLE SOURCE OF TRUTH (AI + người dùng)
 │   ├── INDEX.md                      # Mục lục điều hướng
 │   ├── business/                     # Business rules, luồng xử lý, edge cases
@@ -36,9 +37,14 @@ Hãy khởi tạo và tái cấu trúc thư mục dự án hiện tại theo chu
 ├── repo_1/ repo_2/ repo_3/           # Git repo service (KHÔNG đụng tới)
 │   └── readme.md                     #   mỗi repo: kiến thức TOÀN BỘ repo source (đọc trước khi code)
 ├── scripts/                          # Script chung: setup, seed, migration, gen-contracts
+│   └── link-shared-skills.ps1        #   junction skills → mọi AI tool (chạy 1 lần/clone)
 └── note.md                           # Ghi chú nháp cá nhân
 ```
 
 ## Yêu cầu
 - Tạo từng thư mục/file còn thiếu; file scaffold ghi chú ngắn mục đích (placeholder `{{...}}` cho phần chưa biết).
+- **Skills dùng chung:** sau khi tạo `ai-context/skills/`, tạo junction để mọi AI tool đọc chung:
+  chạy `scripts/link-shared-skills.ps1` nếu có; nếu chưa có script → tạo junction
+  `.agents/skills`, `.claude/skills`, `.github/skills`, `.agent/skills`, `.gemini/skills` → `ai-context/skills`
+  (`New-Item -ItemType Junction`, không cần admin) và thêm 5 đường dẫn junction vào `.gitignore`.
 - Báo cáo: đã tạo gì, giữ nguyên gì. Không tự xóa file cũ.
