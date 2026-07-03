@@ -102,4 +102,14 @@ foreach ($f in $files) {
 Write-Host "apply-template: $($changed.Count) file(s) " -NoNewline -ForegroundColor Cyan
 Write-Host $(if ($DryRun) { '(dry-run, not written)' } else { 'updated' }) -ForegroundColor Cyan
 $changed | ForEach-Object { Write-Host "  $($_.Substring($Root.Length+1))" }
-Write-Host "`nNext: review changes, then delete template.config.json + this script if no longer needed." -ForegroundColor DarkGray
+
+# ── stamp template version (survives deleting template.config.json/this script later) ──
+if (-not $DryRun) {
+  $ver = if ($cfg.PSObject.Properties.Name -contains 'templateVersion') { [string]$cfg.templateVersion } else { 'unknown' }
+  $stampPath = Join-Path $Root '.template-version'
+  $stamp = "templateVersion=$ver`nappliedAt=$(Get-Date -Format 'yyyy-MM-dd')`n"
+  [System.IO.File]::WriteAllText($stampPath, $stamp, $utf8)
+  Write-Host "Stamped .template-version (templateVersion=$ver)" -ForegroundColor DarkGray
+}
+
+Write-Host "`nNext: run scripts/validate-template.ps1, then delete template.config.json + this script if no longer needed." -ForegroundColor DarkGray

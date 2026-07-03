@@ -6,9 +6,9 @@ server-config.md
 secrets.*
 
 # Vendored skill/plugin repos (clone separately or use submodules)
-anthropics_skills/
-anthropics_knowledge-work-plugins/
-mattpocock_skills/
+git_repo_1/
+git_repo_2/
+git_repo_3/
 
 # Personal working notes / reports
 plans/reports/*

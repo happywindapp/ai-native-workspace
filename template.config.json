@@ -1,6 +1,8 @@
 {
   "_readme": "Fill this ONE file, then run: pwsh scripts/apply-template.ps1 . Service names live ONLY in 'services' (DRY). 'scalars' = project/external identity. 'tokenMap' wires inline doc tokens to a service field via @svc:<key>:<field>. Use-time tokens like {{repo}} {{host}} {{port}} are left untouched.",
 
+  "templateVersion": "1.0.0",
+
   "scalars": {
     "workspace-root": "c:/my-workspace",
     "company": "ACME Corp",

@@ -59,23 +59,38 @@ ai-native-workspace/
    powershell -ExecutionPolicy Bypass -File scripts/apply-template.ps1
    ```
 
-   Script thay token `{{...}}` trong mọi `.md` và **tự sinh** bảng Service Registry + env theo tier.
+   Script thay token `{{...}}` trong mọi `.md`, **tự sinh** bảng Service Registry + env theo tier, và stamp
+   `.template-version` (ghi `templateVersion` lấy từ manifest + ngày apply — file này **có commit**, không xoá,
+   để lần sau biết project đang ở bản template nào khi cần merge nâng cấp).
 
-3. **Link skills dùng chung** (1 lần sau mỗi clone):
+3. **Kiểm tra kết quả điền:**
+
+   ```bash
+   pwsh scripts/validate-template.ps1
+   # hoặc: powershell -ExecutionPolicy Bypass -File scripts/validate-template.ps1
+   ```
+
+   Báo lỗi nếu còn sót token dự án chưa điền (chỉ tính là lỗi SAU khi đã có `.template-version`) hoặc link chết
+   trong `docs/INDEX.md`; báo info (không chặn) cho token lúc-dùng, skill thiếu `SKILL.md`, hay skill có frontmatter
+   ngoài chuẩn `name`+`description`.
+
+4. **Link skills dùng chung** (1 lần sau mỗi clone):
 
    ```bash
    pwsh scripts/link-shared-skills.ps1
    ```
 
-4. **Rà soát & commit.** Có thể xoá `template.config.json` + `scripts/apply-template.ps1` nếu không cần điền lại.
+5. **Rà soát & commit.** Có thể xoá `template.config.json` + `scripts/apply-template.ps1` nếu không cần điền lại —
+   giữ lại `.template-version` (đã stamp ở bước 2) và `scripts/validate-template.ps1`.
 
 ## Cơ chế
 
 | Loại | Ví dụ | Script xử lý? |
 |------|-------|---------------|
-| Token dự án | `{{workspace-root}}`, `{{service-a}}`, `{{oms-service}}` | ✅ Thay từ manifest |
+| Token dự án | `{{workspace-root}}`, `{{service-a}}`, `{{oms-service}}` | ✅ Thay từ manifest, ✅ `validate-template.ps1` báo lỗi nếu còn sót |
 | Token lúc-dùng | `{{repo}}`, `{{host}}`, `{{tên feature}}` | ❌ Giữ nguyên (điền khi chạy prompt/copy config) |
 | Bảng tự sinh | giữa `<!-- BEGIN gen:NAME -->` … `<!-- END -->` | ✅ Sinh lại từ `services`, đừng sửa tay |
+| `templateVersion` | field trong `template.config.json` | ✅ Stamp vào `.template-version` khi apply, không tự thay trong `.md` |
 
 Tên service sống **chỉ trong `services[]`**; `tokenMap` nối token inline tới một field service qua `@svc:<key>:<field>`.
 
