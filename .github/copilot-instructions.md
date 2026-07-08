@@ -22,6 +22,7 @@ Không phải runtime app. Tài liệu nguồn: `ai-context/project-context.md`.
 
 - DB **READ-ONLY** — không sinh code/lệnh ghi-xóa DB tự chạy.
 - KHÔNG auto `git commit`/`git push`.
+- PR description theo chuẩn `ai-context/prompts/pr-description.md` (fix bug vs feature mới khác nhau).
 - Skill dùng chung project ở `ai-context/skills/` (Copilot đọc qua junction `.github/skills/`); mỗi skill = 1 folder + `SKILL.md` (frontmatter `name` + `description`).
 - Thuật ngữ domain: `docs/glossary.md`. Quyết định kiến trúc: `docs/decisions/`.
 
