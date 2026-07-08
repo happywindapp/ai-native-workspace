@@ -1,6 +1,9 @@
 # AI Memory
 
 > Nơi AI ghi lại **bài học** để lần sau không lặp lại sai lầm.
+> Khác với memory global riêng từng AI tool (`~/.claude/projects/.../memory/` với Claude Code) — xem
+> `docs/business/README.md` mục 3 "Memory protocol" để phân biệt 2 hệ. File ở ĐÂY là bản chung, git-tracked,
+> mọi AI tool + người đều đọc được — không phải bản thay thế cho memory global.
 
 ## Cách dùng
 
@@ -8,6 +11,9 @@
   Ví dụ: `build-error-lib-x-version-mismatch.md`, `gotcha-grpc-timeout-default.md`.
 - Nội dung gợi ý: **Triệu chứng → Nguyên nhân → Cách xử lý đúng**.
 - Chỉ ghi điều DURABLE (lặp lại nhiều lần, dễ quên). Bỏ qua noise debug tạm thời.
+- **Nếu bạn (AI) vừa ghi 1 finding vào memory global của riêng mình, quay lại đây và tự hỏi: "cái này có
+  cần AI tool khác / người khác biết không?"** — nếu có, ghi thêm 1 file ở đây trong CÙNG lượt, đừng đợi
+  user phải hỏi lại.
 
 ## Mục lục
 
